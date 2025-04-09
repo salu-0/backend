@@ -12,14 +12,15 @@ app.use(express.json());
 mongoose.connect("mongodb+srv://salumanoj2026:salu@cluster0.negtm.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
     useNewUrlParser: true,
     useUnifiedTopology: true
-}).then(() => console.log(" Connected to MongoDB"))
-  .catch(err => console.error(" Database connection error:", err));
+})
+.then(() => console.log("Connected to MongoDB"))
+.catch(err => console.error("Database connection error:", err));
 
 // Import routes
-// const itemRoutes = require(" ");
-// app.use(" ", );
+const itemRoutes = require("./routes/itemRoutes"); // Correct path
+app.use("/itemInserting", itemRoutes); // Fixed extra space
 
 // Start server
 app.listen(PORT, () => {
-    console.log(` Server running at http://localhost:${PORT}`);
+    console.log(`Server running at http://localhost:${PORT}`);
 });
